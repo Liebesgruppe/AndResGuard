@@ -26,8 +26,10 @@ jar {
     attributes "Jar-Version": "${ANDRESGUARD_VESSION}"
     attributes "Build-Time": releaseTime()
   }
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
   from {
-    configurations.implementation.collect { it.isDirectory() ? it : zipTree(it) }
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
   }
 }
 
