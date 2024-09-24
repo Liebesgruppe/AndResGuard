@@ -6,9 +6,9 @@ version rootProject.ext.VERSION_NAME
 group rootProject.ext.GROUP
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
   //compile group: 'com.tencent.mm', name: 'AndResGuard-core', version: version
-  compile project(':AndResGuard-core')
+  implementation project(':AndResGuard-core')
 }
 
 sourceSets {
@@ -27,7 +27,7 @@ jar {
     attributes "Build-Time": releaseTime()
   }
   from {
-    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    configurations.implementation.collect { it.isDirectory() ? it : zipTree(it) }
   }
 }
 

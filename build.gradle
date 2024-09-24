@@ -2,10 +2,14 @@
 buildscript {
   repositories {
     google()
-    jcenter()
+    mavenCentral()
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+    maven { url "https://repo.grails.org/grails/core/" }
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:4.1.2'
+    classpath 'com.android.tools.build:gradle:8.6.1'
     classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
     classpath 'com.ofg:uptodate-gradle-plugin:1.6.2'
   }
@@ -14,7 +18,11 @@ buildscript {
 allprojects {
   repositories {
     google()
-    jcenter()
+    mavenCentral()
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+    maven { url "https://repo.grails.org/grails/core/" }
   }
   tasks.withType(JavaCompile) {
     sourceCompatibility = rootProject.ext.javaVersion
@@ -28,7 +36,7 @@ allprojects {
 }
 
 ext {
-  javaVersion = JavaVersion.VERSION_1_8
+  javaVersion = JavaVersion.VERSION_11
 
   GROUP = 'com.tencent.mm'
   VERSION_NAME = "${ANDRESGUARD_VESSION}"

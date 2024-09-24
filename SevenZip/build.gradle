@@ -1,5 +1,4 @@
 //apply plugin: 'com.google.osdetector'
-apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'java'
 
@@ -8,11 +7,11 @@ group rootProject.ext.GROUP
 
 task sourcesJar(type: Jar) {
   from sourceSets.main.java.srcDirs
-  classifier = 'sources'
+  archiveClassifier.set('sources')
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-  classifier = 'javadoc'
+  archiveClassifier.set('javadoc')
   from javadoc.destinationDir
 }
 

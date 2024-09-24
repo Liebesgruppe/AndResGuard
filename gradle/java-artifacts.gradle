@@ -5,11 +5,11 @@ targetCompatibility = rootProject.ext.javaVersion
 
 task sourcesJar(type: Jar) {
   from sourceSets.main.java.srcDirs
-  classifier = 'sources'
+  archiveClassifier.set('sources')
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-  classifier = 'javadoc'
+    archiveClassifier.set('javadoc')
   from javadoc.destinationDir
 }
 
